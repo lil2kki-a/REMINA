@@ -1,0 +1,83 @@
+{
+	"geode": "5.7.1",
+	"early-load": true,
+	"gd": {
+		"win": "2.2081",
+		"android": "2.2081",
+		"mac": "2.2081",
+		"ios": "2.2081"
+	},
+	"id": "_lil2kki.remina",
+	"name": "\u000a",
+	"version": "v0.0.0-alpha.1",
+	"developers": [ "\u0000" ],
+	"description": "remina.ps.fhgdps.com",
+	"links": {
+		"source": "https://github.com/lil2kki/REMINA",
+		"community": "https://discord.gg/NXbbv2HZGg",
+		"homepage": "https://remina.ps.fhgdps.com"
+	},
+	"dependencies": {
+		"geode.node-ids": {
+			"version": ">=v1.20.0",
+			"required": false
+		},
+		"prevter.imageplus": {
+			"version": ">=v1.0.3",
+			"required": false
+		},
+		"alphalaneous.happy_textures": {
+			"version": ">=v2.0.7",
+			"required": false
+		},
+		"iandyhd3.infinite_inputs": {
+			"version": ">=v1.0.0",
+			"required": false
+		}
+	},
+	"resources": {
+		"sprites": [
+			"assets/sprites/**/**/*.png"
+		],
+		"spritesheets": {
+			"spritesheet": [
+				"assets/frames/**/**/*.png"
+			]
+		}
+	},
+	"api": {
+		"include": [
+			"resources/**/**/*.*"
+		]
+	},
+	"settings": {
+		"redir request urls": {
+			"name": "redir request urls",
+			"description": "replace boomlings.com/database with the our server url in all requests",
+			"type": "bool",
+			"default": true
+		},
+		"add button sounds": {
+			"name": "add button sounds",
+			"description": "add sounds to buttons that don't have them",
+			"type": "bool",
+			"default": true
+		},
+		"past": {
+			"name": "past",
+			"description": "things was better then ya?",
+			"type": "bool",
+			"default": false
+		},
+		"ignore deps": {
+			"name": "ignore deps",
+			"type": "bool",
+			"default": false
+		},
+		"ignore updates": {
+			"name": "ignore updates",
+			"type": "bool",
+			"default": false
+		}
+	}
+}
