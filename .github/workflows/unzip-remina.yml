@@ -1,0 +1,47 @@
+name: Unzip REMINA and Commit
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'REMINA-master.zip'
+  workflow_dispatch:  # позволяет запустить вручную
+
+permissions:
+  contents: write
+
+jobs:
+  unzip-and-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Unzip REMINA-master.zip
+        run: |
+          if [ ! -f "REMINA-master.zip" ]; then
+            echo "❌ Файл REMINA-master.zip не найден"
+            exit 1
+          fi
+          unzip -o REMINA-master.zip
+          echo "✅ Архив распакован"
+
+      - name: Remove zip file
+        run: |
+          rm -f REMINA-master.zip
+          echo "🗑️ Архив удалён"
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "ℹ️ Нет изменений для коммита"
+            exit 0
+          fi
+          git commit -m "chore: распакован REMINA-master.zip и удалён архив"
+          git push origin main
